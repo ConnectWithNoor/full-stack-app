@@ -1,7 +1,44 @@
-import React from 'react';
+import './App.scss';
+import '@fortawesome/fontawesome-free/js/all';
 
-function App() {
-  return <div>App</div>;
-}
+import React, { FC } from 'react';
+import { Navigate, Routes, Route, NavLink, useNavigate } from 'react-router-dom';
+
+const App: FC = () => {
+  return (
+    <div className="App">
+      <header>
+        <NavLink to="/" className="logo">
+          Luug.gg
+        </NavLink>
+
+        <NavLink to="/career">
+          <i className="fas fa-graduation-cap" /> Career
+        </NavLink>
+
+        <NavLink to="/cooking">
+          <i className="fas fa-utensils" /> Cooking
+        </NavLink>
+
+        <NavLink to="/messenger">
+          <i className="fab fa-slack" /> Messenger
+        </NavLink>
+        <NavLink to="/meeting">
+          <i className="fas fa-video" /> Meeting
+        </NavLink>
+      </header>
+      <main>
+        <Routes>
+          <Route path="/career" element={<p>Career Page</p>} />
+          <Route path="/cooking" element={<p>Cooking</p>} />
+          <Route path="/messenger" element={<p>messenger</p>} />
+          <Route path="/meeting" element={<p>meeting</p>} />
+          <Route path="/" element={<p>dashboard</p>} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </main>
+    </div>
+  );
+};
 
 export default App;
