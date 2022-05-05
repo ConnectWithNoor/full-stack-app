@@ -2,7 +2,8 @@ import './App.scss';
 import '@fortawesome/fontawesome-free/js/all';
 
 import React, { FC } from 'react';
-import { Navigate, Routes, Route, NavLink, useNavigate } from 'react-router-dom';
+import { Navigate, Routes, Route, NavLink } from 'react-router-dom';
+import Dashboard from './Dashboard';
 
 const App: FC = () => {
   return (
@@ -33,7 +34,7 @@ const App: FC = () => {
           <Route path="/cooking" element={<p>Cooking</p>} />
           <Route path="/messenger" element={<p>messenger</p>} />
           <Route path="/meeting" element={<p>meeting</p>} />
-          <Route path="/" element={<p>dashboard</p>} />
+          <Route path="/" element={<Dashboard />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </main>
